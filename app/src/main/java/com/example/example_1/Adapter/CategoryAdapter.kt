@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.example_1.Activity.DataBaseModal
+import com.example.example_1.Utils.DataBaseModal
 import com.example.example_1.Activity.MainActivity
 import com.example.example_1.R
 

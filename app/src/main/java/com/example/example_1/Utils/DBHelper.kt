@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.os.Build
 import android.util.Log
-import com.example.example_1.Activity.DataBaseModal
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
@@ -73,6 +72,29 @@ class DBHelper(val context: Context?) : SQLiteOpenHelper(context, "quotes.db", n
         }
         Log.e("TAG", "readData:count "+list2.size )
         return list2
+
+
+    }
+
+    @SuppressLint("Range")
+    fun CategoryReadData(): ArrayList<CategoryModal> {
+        var db = readableDatabase
+        var query = "SELECT * FROM category"
+        var list3 = arrayListOf<CategoryModal>()
+
+        var cursor = db.rawQuery(query, null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                var categoryname = cursor.getString(cursor.getColumnIndex("name"))
+                var id = cursor.getString(cursor.getColumnIndex("id"))
+
+                var l1 = CategoryModal(categoryname, id)
+                list3.add(l1)
+            } while (cursor.moveToNext())
+        }
+        Log.e("TAG", "readData:count "+list3.size )
+        return list3
 
 
     }

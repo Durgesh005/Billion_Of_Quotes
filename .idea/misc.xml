@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Example_1/app/src/main/res/font/chakra_petch.xml" value="0.14010416666666667" />
+        <entry key="..\:/Example_1/app/src/main/res/font/poppins.xml" value="0.2324074074074074" />
         <entry key="..\:/Example_1/app/src/main/res/layout/activity_main.xml" value="0.18981481481481483" />
+        <entry key="..\:/Example_1/app/src/main/res/layout/activity_quotes_show.xml" value="0.18981481481481483" />
+        <entry key="..\:/Example_1/app/src/main/res/layout/activity_spalash_screen.xml" value="0.18981481481481483" />
+        <entry key="..\:/Example_1/app/src/main/res/layout/categoryview.xml" value="0.25" />
         <entry key="..\:/Example_1/app/src/main/res/layout/quotesview.xml" value="0.25" />
       </map>
     </option>
