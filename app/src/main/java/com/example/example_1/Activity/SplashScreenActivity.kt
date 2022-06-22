@@ -18,9 +18,11 @@ class SplashScreenActivity : AppCompatActivity() {
 
 
         Handler().postDelayed({
+            binding.animationView.playAnimation()
             val intent = Intent(this, MainActivity::class.java)
+            binding.animationView.pauseAnimation()
             startActivity(intent)
             finish()
-        }, 3000)
+        }, 2500)
     }
 }

@@ -5,7 +5,6 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.os.Build
-import android.util.Log
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
@@ -54,9 +53,9 @@ class DBHelper(val context: Context?) : SQLiteOpenHelper(context, "quotes.db", n
     }
 
     @SuppressLint("Range")
-    fun readData(): ArrayList<DataBaseModal> {
+    fun readData(id:String): ArrayList<DataBaseModal> {
         var db = readableDatabase
-        var query = "SELECT * FROM quotes"
+        var query = "SELECT * FROM quotes WHERE category_id=$id";
         var list2 = arrayListOf<DataBaseModal>()
 
         var cursor = db.rawQuery(query, null)
@@ -66,11 +65,11 @@ class DBHelper(val context: Context?) : SQLiteOpenHelper(context, "quotes.db", n
                 var categoryid = cursor.getString(cursor.getColumnIndex("category_id"))
                 var quote = cursor.getString(cursor.getColumnIndex("quote"))
 
-                var l1 = DataBaseModal(categoryid, quote)
+                var l1 = DataBaseModal(quote, categoryid)
                 list2.add(l1)
             } while (cursor.moveToNext())
         }
-        Log.e("TAG", "readData:count "+list2.size )
+        /*      Log.e("TAG", "readData:count "+list2.size )*/
         return list2
 
 
@@ -87,13 +86,13 @@ class DBHelper(val context: Context?) : SQLiteOpenHelper(context, "quotes.db", n
         if (cursor.moveToFirst()) {
             do {
                 var categoryname = cursor.getString(cursor.getColumnIndex("name"))
-                var id = cursor.getString(cursor.getColumnIndex("id"))
+                var number = cursor.getString(cursor.getColumnIndex("_id"))
 
-                var l1 = CategoryModal(categoryname, id)
+                var l1 = CategoryModal(categoryname, number)
                 list3.add(l1)
             } while (cursor.moveToNext())
         }
-        Log.e("TAG", "readData:count "+list3.size )
+        /*  Log.e("TAG", "readData:count "+list3.size )*/
         return list3
 
 
