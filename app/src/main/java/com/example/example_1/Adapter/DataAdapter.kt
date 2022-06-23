@@ -33,9 +33,7 @@ class DataAdapter(
         holder.category.text = list3[position].categoryname
         holder.check.text = list3[position].number
 
-
         var number = list3[position].number
-
 
 
         holder.cardview.setOnClickListener {
@@ -48,7 +46,8 @@ class DataAdapter(
     }
 
     override fun getItemCount(): Int {
-        return list3.size
+        return 12
+
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
