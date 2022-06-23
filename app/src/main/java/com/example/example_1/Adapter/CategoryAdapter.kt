@@ -10,10 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.example_1.Activity.QuotesShow
 import com.example.example_1.R
@@ -69,9 +66,8 @@ class CategoryAdapter(
 
         holder.download.setOnClickListener {
 
-            holder.image.setDrawingCacheEnabled(true)
-            val bitamp: Bitmap = holder.image.getDrawingCache()
-
+            holder.photo.setDrawingCacheEnabled(true)
+            val bitamp: Bitmap = holder.photo.getDrawingCache()
             try {
                 saveBitmap(factivity, bitamp, CompressFormat.PNG, "image/*", "newimg.png")
             } catch (e: Exception) {
@@ -90,6 +86,7 @@ class CategoryAdapter(
         var copy = itemView.findViewById<LinearLayout>(R.id.copy_btn)
         var share = itemView.findViewById<LinearLayout>(R.id.share_btn)
         var image = itemView.findViewById<ImageView>(R.id.change_images_btn)
+        var photo = itemView.findViewById<FrameLayout>(R.id.download_images)
 
 
     }
